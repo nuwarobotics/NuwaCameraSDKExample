@@ -14,3 +14,13 @@ Robot Generation 1
 
 Robot Generation 2
 * Kebbi Air : Taiwan、Chain、Japan
+
+# `Nuwa Camera SDK`
+Nuwa Camera SDK provide basic camera preview and take picture feature and detect face which register on Nuwa Contacts.
+
+Feature List :
+* take picture
+* start\stop preview (floating window)
+* receive recognition result (FACE_DETECTION\FACE_RECOGNITION\FACE_TRACK\OBJ_RECOGNITION)
+
+
