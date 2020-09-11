@@ -27,6 +27,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    //MUST use lib
+    implementation 'com.google.code.gson:gson:2.7'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.5'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.5'
+
     // include Nuwa Robot SDK in /libs
-    implementation(name: 'Mibo_SDK_release_1.1.0.0', ext: 'aar')
+    implementation(name: 'NuwaSDK-2020-09-07_v2.1.0.03.b2fe198', ext: 'aar')
 }

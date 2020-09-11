@@ -5,7 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.nuwarobotics.camerasdkdemo.MainActivity">
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:textSize="24dp"
+    android:text="Press Register to initial, and start receive recognition data"
+    android:textAlignment="center"
+    ></TextView>
     <LinearLayout
         android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
@@ -14,40 +21,33 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/startBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Start" />
-
-        <Button
-            android:id="@+id/stopBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Stop" />
 
         <Button
             android:id="@+id/bindBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bind" />
+            android:text="register" />
 
         <Button
             android:id="@+id/unbindBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Unbind" />
+            android:text="unregister" />
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="24dp"
+        android:text="Output raw data"
+        android:textAlignment="center"
+        />
     <TextView
         android:id="@+id/outputTextView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2" />
 
-    <TextView
-        android:id="@+id/outputTextView1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2" />
+
 </LinearLayout>
