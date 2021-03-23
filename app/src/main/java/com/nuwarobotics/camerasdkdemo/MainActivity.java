@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         case Constants.FACE_RECOGNITION :{
                             //Example of get face data
                             FaceData returnFace = mGson.fromJson(outputData.data, FaceData.class);
+                            // "@#$" is a special unknown result, we need to ignore it
                             if(returnFace != null && !"@#$".equals(returnFace.name) && !"null".equals(returnFace.name)){
                                 Log.d(TAG,"Find FaceData user_name:"+returnFace.name + " rect="+returnFace.rect.toString());  //return name come from registered on Robot Family.
 
