@@ -33,6 +33,22 @@ public class MainActivity extends AppCompatActivity {
     private CameraSDK cameraSDK = new CameraSDK(this);
     private TextView mOutputTextView;
     private Gson mGson;
+
+    private class FRData {
+        public static final String UNKNOWN_NAME = "other";
+        public int idx;
+        public String conf = null;
+        public String mask = null; //does user wear mask (support on 1.4620.100JP.1 later version)
+        public String name = null; //user name  (if stranger, this value will be "null" or "@#$")
+        public Rect rect = null; //face rect
+        public String age;
+        public String gender;
+        public long faceid;
+
+        public FRData() {
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     sb.append("" + type + ": " + outputData.processTime + "\t" + outputData.data + "\n");
                     switch(type){
                         case Constants.FACE_DETECTION :{
+                            //It allow find all face on preview screen, and get all rect.  (but no mask information)
                             ObjectMapper sMapper = new ObjectMapper();
                             List<Rect> list = null;
                             try {
@@ -112,12 +129,16 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         }
                         case Constants.FACE_RECOGNITION :{
+                            //It allow recognition face in center of screen.
+                            //We can get name、face rect、wear mask information、age、etc.....
                             //Example of get face data
-                            FaceData returnFace = mGson.fromJson(outputData.data, FaceData.class);
                             // "@#$" is a special unknown result, we need to ignore it
+                            FRData returnFace = mGson.fromJson(outputData.data, FRData.class);
                             if(returnFace != null && !"@#$".equals(returnFace.name) && !"null".equals(returnFace.name)){
-                                Log.d(TAG,"Find FaceData user_name:"+returnFace.name + " rect="+returnFace.rect.toString());  //return name come from registered on Robot Family.
-
+                                Log.d(TAG,"Find FaceData user_name:"+returnFace.name );  //return name come from registered on Robot Family.
+                                Log.d(TAG,"user face rect : "+returnFace.rect.toString());
+                                Log.d(TAG,"user wear mask : "+returnFace.mask);
+                                Log.d(TAG,"user age : "+returnFace.age);
                             }else{
                                 if(returnFace != null)
                                     Log.d(TAG,"Unknown stranger "+returnFace.name);
