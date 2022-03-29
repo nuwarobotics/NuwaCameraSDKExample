@@ -7,6 +7,10 @@ Example Nuwa CameraSDK API (in NuwaSDK)
 
 NOTICE : Please get NuwaSDK from Nuwarobotics Developer Website
 
+# `Camera SDK Document`
+* NUWA Camera SDK Introduction
+* https://developer-docs.nuwarobotics.com/sdk/NuwaCameraSDK.html
+
 # `Support Robot Product`
 Robot Generation 1 
 * Kebbi(凱比) : Taiwan
